@@ -20,7 +20,7 @@ export const Route = createFileRoute("/admin/tests/")(
 					placeholder: "Я согласен с чем-то",
 				},
 				name: {
-					label: "Название",
+					label: "Имя",
 					placeholder: "Введите название",
 					selectFrom: () =>
 						Promise.resolve([

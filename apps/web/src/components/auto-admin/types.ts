@@ -1,6 +1,7 @@
 import type { orpc } from "@/lib/orpc";
 import type { Item } from "@/lib/types/utils";
-import type { ReactNode } from "@types/react";
+import { FieldApi, type DeepKeys, type DeepValue } from "@tanstack/react-form";
+import type { ReactNode } from "react";
 import {
 	ZodArray,
 	ZodNullable,
@@ -57,9 +58,16 @@ export type FieldConfig<
 > = {
 	label?: string;
 	placeholder?: string;
-	noDelete?: boolean;
-	noUpdate?: boolean;
 	fileType?: string;
+	field?: (field: {
+		state: {
+			value: TypescriptType;
+			meta: {
+				errors: (string | undefined)[];
+			};
+		};
+		handleChange: (value: TypescriptType) => void;
+	}) => ReactNode;
 } & (TypescriptType extends string | string[]
 	?
 			| {

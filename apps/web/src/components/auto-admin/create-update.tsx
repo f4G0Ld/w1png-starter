@@ -33,7 +33,6 @@ import {
 import { DropdownMenuItem } from "../ui/dropdown-menu";
 import { Label } from "../ui/label";
 import MultipleSelect from "../ui/multiple-select";
-import { cn } from "@/lib/utils";
 import Combobox from "../ui/combobox";
 import { Switch } from "../ui/switch";
 
@@ -105,6 +104,10 @@ export function AutoAdminCreateUpdate<
 		field: Parameters<Parameters<typeof form.Field>[0]["children"]>[0];
 	}) {
 		const cfg = config?.fields?.[k];
+
+		if (cfg?.field) {
+			return cfg.field(field);
+		}
 
 		const [newArrayValue, setNewArrayValue] = useState<string>("");
 
