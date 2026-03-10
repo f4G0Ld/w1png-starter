@@ -266,6 +266,7 @@ export function AutoAdminCreateUpdate<
 			case "string": {
 				return (
 					<Input
+						variant={cfg?.type === "textarea" ? "textarea" : "default"}
 						value={field.state.value as string}
 						onChange={(e) => field.handleChange(e.target.value as CastedValue)}
 						onBlur={field.handleBlur}

@@ -74,7 +74,9 @@ export type FieldConfig<
 					selectFrom?: () => PromiseLike<Item[]>;
 					type?:
 						| "file"
-						| (TypescriptType extends string ? "string" : "string[]");
+						| (TypescriptType extends string
+								? "textarea" | "string"
+								: "string[]");
 			  }
 			| {
 					selectFrom?: never;

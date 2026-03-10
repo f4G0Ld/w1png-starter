@@ -21,6 +21,7 @@ import { AutoAdminCreateUpdate } from "./create-update";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
+	DropdownMenuLabel,
 	DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 import { EllipsisVertical } from "lucide-react";
@@ -114,11 +115,13 @@ export default function AutoAdmin<
 													<EllipsisVertical />
 												</DropdownMenuTrigger>
 												<DropdownMenuContent>
+													<DropdownMenuLabel>Действия</DropdownMenuLabel>
 													{config?.actions?.update !== false && (
 														<AutoAdminCreateUpdate
 															value={row.original}
 															schema={schema}
 															router={routerKey}
+															config={config}
 														/>
 													)}
 
