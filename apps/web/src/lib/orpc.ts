@@ -42,7 +42,7 @@ export const getClientLink = createIsomorphicFn()
 			new RPCLink({
 				url: `${import.meta.env.VITE_SERVER_URL_INTERNAL}/rpc`,
 				headers: () => {
-					return getRequest().headers;
+					return getRequest().headers.toJSON();
 				},
 				fetch(request, options) {
 					try {

@@ -3,10 +3,15 @@ import { SidebarProvider } from "@/components/ui/sidebar";
 import AdminSidebar from "./-sidebar";
 
 export const Route = createFileRoute("/admin")({
-	async beforeLoad({ context }) {
-		if (context.session?.user.role !== "ADMIN") {
+	async beforeLoad(ctx) {
+		const session = await ctx.context.orpc.users.session.get.call();
+		if (session?.user.role !== "ADMIN") {
 			throw notFound();
 		}
+
+		return {
+			session,
+		};
 	},
 	component: AdminLayout,
 });
