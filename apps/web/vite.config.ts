@@ -10,7 +10,7 @@ export default defineConfig({
 		tsconfigPaths(),
 		tailwindcss(),
 		tanstackStart({}),
-		nitroV2Plugin({ preset: "bun" }),
+		nitroV2Plugin({ preset: "bun", compatibilityDate: "2026-02-01" }),
 		react(),
 	],
 	server: {
