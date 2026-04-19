@@ -32,6 +32,7 @@
 	"dependencies": {
 		"drizzle-orm": "catalog:",
 		"@lunarweb/env": "workspace:*",
-		"@lunarweb/shared": "workspace:*"
+		"@lunarweb/shared": "workspace:*",
+		"@lunarweb/logger": "workspace:*"
 	}
 }
